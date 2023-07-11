@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Gun Deaths in America (2006-2020)</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: "orange"
+    }
+    h1 {
+      text-align: center;
+      padding: 20px;
+    }
+    .slide {
+      display: none;
+    }
+    .active-slide {
+      display: block;
+    }
+    .chart-container {
+      width: 3500px;
+      height: 1500px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: left;
+      background-color: "orange"
+    }
+    .associated-chart-container {
+      width: 600px;
+      height: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    .text-box {
+      width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: justify;
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .slide-button {
+      padding: 10px 20px;
+      margin: 0 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .play-button {padding: 10px 20px;
+      margin: 0 5px;
+      font-size: 30px;
+      cursor: pointer;}
+
+    .pause-button {padding: 10px 20px;
+      margin: 0 5px;
+      font-size: 30px;
+      cursor: pointer;}
+  </style>
+</head>
+<body>
+  <h1 style="color:red">GUN DEATHS IN AMERICA (2006-2020) </h1>
+
+  <div class="button-container">
+
+    <button class="slide-button" onclick="showSlide('cause-slide')">Cause of Death</button>
+    <button class="slide-button" onclick="showSlide('sex-slide')">Sex</button>
+    <button class="slide-button" onclick="showSlide('race-slide')">Race</button>
+    <button class="slide-button" onclick="showSlide('place-slide')">Place</button>
+    <button class="slide-button" onclick="showSlide('education-slide')">Education</button>
+    <button class="slide-button" onclick="showSlide('age-slide')">Age</button>
+    <button class="slide-button" onclick="showSlide('year-slide')">Time</button>
+  </div>
+
+  <h1 style="color:orange"><u>Visualization of American gun deaths over the years from 2006 to 2020 </u></h1>
+
+  <p style="font-family: 'Courier New', Courier, monospace"> This visualization shows the amount of American gun deaths over the years. Each death is represented by a small red dot on the screen.
+     As the year updates, all the people who died from guns that year are added as new red dots to the screen. The data covers the years 2006 through 2020. Press Play to start the visualization
+    and Pause to stop it at any time. Note that due to the massive amounts of data being displayed, the visualization may take a few minutes to complete. Once started, scroll down slightly to see the full box
+  </p>
+
+  <h2 style="display: inline;"><em>Current date: </em></h2>
+  <h2 id ="demo" style="display: inline; color: green">Jan 1 2006</h2>
+
+
+
+
+
+  <br>
+  <br>
+
+  <h2 style="display: inline;"><em>Number of gun deaths in </em></h2>
+  <h2 id="demo3" style="display: inline; color: purple">: 0</h2>
+
+  <br>
+  <br>
+
+  <h2 style="display: inline;"><em>Total number of gun deaths from 2006 to </em></h2>
+  <h2 id="demo2" style="display: inline; color: blue"><em>2006</em>: 0</h2>
+
+  <br>
+  <br>
+
+  <button id="intent-button" class="play-button">Visualize by Intent  </button>
+  <button id="sex-button" class="pause-button">Visualize by Victim Sex</button>
+
+  <button id="race-button" class="play-button">Visualize by Victim Race  </button>
+  <button id="education-button" class="pause-button">Visualize by Victim Education Level</button>
+
+  <br>
+  <br>
+
+
+  <button id="play-button" class="play-button">Play  </button>
+  <button id="pause-button" class="pause-button">Pause</button>
+
+  <button id="play-button2" class="play-button">Play  </button>
+  <button id="pause-button2" class="pause-button">Pause</button>
+
+  <div class="slide" id="year-slide">
+    <div class="chart-container" id="year-chart"></div>
+    <div class="associated-chart-container" id="associated-year-chart"></div>
+    <div class="text-box" id="year-text"></div>
+  </div>
+
+  <div class="slide active-slide" id="cause-slide">
+    <div class="chart-container" id="cause-chart"></div>
+    <div class="associated-chart-container" id="associated-cause-chart"></div>
+    <div class="text-box" id="cause-text"></div>
+  </div>
+
+  <div class="slide" id="sex-slide">
+    <div class="chart-container" id="sex-chart"></div>
+    <div class="associated-chart-container" id="associated-sex-chart"></div>
+    <div class="text-box" id="sex-text"></div>
+  </div>
+
+  <div class="slide" id="race-slide">
+    <div class="chart-container" id="race-chart"></div>
+    <div class="associated-chart-container" id="associated-race-chart"></div>
+    <div class="text-box" id="race-text"></div>
+  </div>
+
+  <div class="slide" id="place-slide">
+    <div class="chart-container" id="place-chart"></div>
+    <div class="associated-chart-container" id="associated-place-chart"></div>
+    <div class="text-box" id="place-text"></div>
+  </div>
+
+  <div class="slide" id="education-slide">
+    <div class="chart-container" id="education-chart"></div>
+    <div class="associated-chart-container" id="associated-education-chart"></div>
+    <div class="text-box" id="education-text"></div>
+  </div>
+
+  <div class="slide" id="age-slide">
+    <div class="chart-container" id="age-chart"></div>
+    <div class="associated-chart-container" id="associated-age-chart"></div>
+    <div class="text-box" id="age-text"></div>
+  </div>
+
+
+
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="index.js"></script>
+  <script src="year.js"></script>
+  <script src="cause.js"></script>
+  
+
+  <script>
+    combineGunDeathData();
+    const slides = document.querySelectorAll('.slide');
+    const buttons = document.querySelectorAll('.slide-button');
+
+    function showSlide(slideId) {
+      slides.forEach(slide => {
+        slide.classList.remove('active-slide');
+      });
+      document.getElementById(slideId).classList.add('active-slide');
+    }
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const slideId = button.getAttribute('data-slide');
+        showSlide(slideId);
+      });
+    });
+
+  </script>
+
+
+
+</body>
+</html>
